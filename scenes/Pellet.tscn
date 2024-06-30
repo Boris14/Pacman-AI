@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://bg4ct5sanuog1"]
+
+[ext_resource type="Texture2D" uid="uid://c2ktvqa3qkssj" path="res://assets/Arcade - Pac-Man - General Sprites.png" id="1_6g0es"]
+[ext_resource type="Script" path="res://scripts/Pellet.gd" id="1_gmqpn"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_s8gv6"]
+radius = 3.0
+
+[node name="Pellet" type="Area2D"]
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("1_gmqpn")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_6g0es")
+region_enabled = true
+region_rect = Rect2(10, 10, 4, 4)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_s8gv6")

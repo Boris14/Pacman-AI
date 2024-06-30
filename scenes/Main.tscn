@@ -1,0 +1,979 @@
+[gd_scene load_steps=7 format=3 uid="uid://bnx0mqw4qcpwr"]
+
+[ext_resource type="TileSet" uid="uid://bkta6146p2kvo" path="res://assets/PacmanTileSet.tres" id="1_2kd5s"]
+[ext_resource type="Script" path="res://scripts/Main.gd" id="1_q4oip"]
+[ext_resource type="PackedScene" uid="uid://dxdkckch7y8sj" path="res://scenes/Crossroad.tscn" id="3_b86gi"]
+[ext_resource type="PackedScene" uid="uid://c6ek6pt6kcuo0" path="res://scenes/Pacman.tscn" id="3_ki7d4"]
+[ext_resource type="PackedScene" uid="uid://bg4ct5sanuog1" path="res://scenes/Pellet.tscn" id="4_udemh"]
+[ext_resource type="PackedScene" uid="uid://bt8nmpfrwol7g" path="res://scenes/HUD.tscn" id="5_hviel"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_q4oip")
+pacman_scene = ExtResource("3_ki7d4")
+crossroad_scene = ExtResource("3_b86gi")
+
+[node name="TileMap" type="TileMap" parent="." groups=["Terrain"]]
+tile_set = ExtResource("1_2kd5s")
+format = 2
+layer_0/tile_data = PackedInt32Array(393225, 589824, 17, 458761, 589824, 17, 524297, 589824, 17, 589833, 589824, 9, 655369, 589824, 10, 720905, 589824, 11, 786441, 589824, 12, 851977, 589824, 13, 917513, 589824, 14, 983049, 589824, 15, 1048585, 589824, 16, 1114121, 589824, 17, 1179657, 589824, 18, 1245193, 589824, 19, 1310729, 589824, 17, 1376265, 589824, 21, 1441801, 589824, 22, 1507337, 589824, 17, 1572873, 589824, 17, 1638409, 589824, 17, 1703945, 589824, 17, 1769481, 589824, 27, 1835017, 589824, 28, 1900553, 589824, 17, 1966089, 589824, 30, 393226, 655360, 6, 458762, 655360, 7, 524298, 589824, 17, 589834, 655360, 9, 655370, 655360, 10, 720906, 655360, 11, 786442, 655360, 12, 851978, 655360, 13, 917514, 655360, 14, 983050, 655360, 15, 1048586, 655360, 16, 1114122, 655360, 17, 1179658, 655360, 18, 1245194, 655360, 19, 1310730, 589824, 17, 1376266, 655360, 21, 1441802, 655360, 22, 1507338, 589824, 17, 1572874, 655360, 24, 1638410, 655360, 25, 1703946, 589824, 17, 1769482, 655360, 27, 1835018, 655360, 28, 1900554, 589824, 17, 1966090, 655360, 30, 393227, 720896, 6, 458763, 720896, 7, 524299, 589824, 17, 589835, 720896, 9, 655371, 720896, 10, 720907, 720896, 11, 786443, 720896, 12, 851979, 720896, 13, 917515, 720896, 14, 983051, 720896, 15, 1048587, 720896, 16, 1114123, 720896, 17, 1179659, 720896, 18, 1245195, 720896, 19, 1310731, 589824, 17, 1376267, 720896, 21, 1441803, 720896, 22, 1507339, 589824, 17, 1572875, 720896, 24, 1638411, 720896, 25, 1703947, 589824, 17, 1769483, 720896, 27, 1835019, 720896, 28, 1900555, 589824, 17, 1966091, 720896, 30, 393228, 786432, 6, 458764, 786432, 7, 524300, 589824, 17, 589836, 786432, 9, 655372, 786432, 10, 720908, 786432, 11, 786444, 786432, 12, 851980, 786432, 13, 917516, 786432, 14, 983052, 786432, 15, 1048588, 786432, 16, 1114124, 786432, 17, 1179660, 786432, 18, 1245196, 786432, 19, 1310732, 589824, 17, 1376268, 589824, 17, 1441804, 589824, 17, 1507340, 589824, 17, 1572876, 786432, 24, 1638412, 786432, 25, 1703948, 589824, 17, 1769484, 589824, 17, 1835020, 589824, 17, 1900556, 589824, 17, 1966092, 786432, 30, 393229, 851968, 6, 458765, 851968, 7, 524301, 851968, 8, 589837, 851968, 9, 655373, 851968, 10, 720909, 851968, 11, 786445, 851968, 12, 851981, 851968, 13, 917517, 851968, 14, 983053, 851968, 15, 1048589, 851968, 16, 1114125, 851968, 17, 1179661, 851968, 18, 1245197, 851968, 19, 1310733, 851968, 20, 1376269, 851968, 21, 1441805, 851968, 22, 1507341, 851968, 23, 1572877, 851968, 24, 1638413, 851968, 25, 1703949, 851968, 26, 1769485, 851968, 27, 1835021, 851968, 28, 1900557, 589824, 17, 1966093, 851968, 30, 393230, 917504, 6, 458766, 917504, 7, 524302, 917504, 8, 589838, 917504, 9, 655374, 917504, 10, 720910, 917504, 11, 786446, 917504, 12, 851982, 917504, 13, 917518, 917504, 14, 983054, 917504, 15, 1048590, 917504, 16, 1114126, 917504, 17, 1179662, 917504, 18, 1245198, 917504, 19, 1310734, 917504, 20, 1376270, 917504, 21, 1441806, 917504, 22, 1507342, 589824, 17, 1572878, 917504, 24, 1638414, 917504, 25, 1703950, 917504, 26, 1769486, 917504, 27, 1835022, 917504, 28, 1900558, 589824, 17, 1966094, 917504, 30, 393231, 983040, 6, 458767, 983040, 7, 524303, 589824, 17, 589839, 983040, 9, 655375, 983040, 10, 720911, 983040, 11, 786447, 983040, 12, 851983, 983040, 13, 917519, 983040, 14, 983055, 983040, 15, 1048591, 983040, 16, 1114127, 983040, 17, 1179663, 983040, 18, 1245199, 983040, 19, 1310735, 589824, 17, 1376271, 589824, 17, 1441807, 589824, 17, 1507343, 589824, 17, 1572879, 983040, 24, 1638415, 983040, 25, 1703951, 589824, 17, 1769487, 589824, 17, 1835023, 589824, 17, 1900559, 589824, 17, 1966095, 983040, 30, 393232, 1048576, 6, 458768, 1048576, 7, 524304, 589824, 17, 589840, 1048576, 9, 655376, 1048576, 10, 720912, 1048576, 11, 786448, 1048576, 12, 851984, 1048576, 13, 917520, 1048576, 14, 983056, 1048576, 15, 1048592, 1048576, 16, 1114128, 1048576, 17, 1179664, 1048576, 18, 1245200, 1048576, 19, 1310736, 589824, 17, 1376272, 1048576, 21, 1441808, 1048576, 22, 1507344, 589824, 17, 1572880, 1048576, 24, 1638416, 1048576, 25, 1703952, 589824, 17, 1769488, 1048576, 27, 1835024, 1048576, 28, 1900560, 589824, 17, 1966096, 1048576, 30, 393233, 1114112, 6, 458769, 1114112, 7, 524305, 589824, 17, 589841, 1114112, 9, 655377, 1114112, 10, 720913, 1114112, 11, 786449, 1114112, 12, 851985, 1114112, 13, 917521, 1114112, 14, 983057, 1114112, 15, 1048593, 1114112, 16, 1114129, 1114112, 17, 1179665, 1114112, 18, 1245201, 1114112, 19, 1310737, 589824, 17, 1376273, 1114112, 21, 1441809, 1114112, 22, 1507345, 589824, 17, 1572881, 1114112, 24, 1638417, 1114112, 25, 1703953, 589824, 17, 1769489, 1114112, 27, 1835025, 1114112, 28, 1900561, 589824, 17, 1966097, 1114112, 30, 393234, 589824, 17, 458770, 589824, 17, 524306, 589824, 17, 589842, 1179648, 9, 655378, 1179648, 10, 720914, 1179648, 11, 786450, 1179648, 12, 851986, 1179648, 13, 917522, 1179648, 14, 983058, 1179648, 15, 1048594, 1179648, 16, 1114130, 1179648, 17, 1179666, 1179648, 18, 1245202, 1179648, 19, 1310738, 589824, 17, 1376274, 1179648, 21, 1441810, 1179648, 22, 1507346, 589824, 17, 1572882, 589824, 17, 1638418, 589824, 17, 1703954, 589824, 17, 1769490, 1179648, 27, 1835026, 1179648, 28, 1900562, 589824, 17, 1966098, 1179648, 30, 393235, 1245184, 6, 458771, 1245184, 7, 524307, 1245184, 8, 589843, 1245184, 9, 655379, 1245184, 10, 720915, 1245184, 11, 786451, 1245184, 12, 851987, 1245184, 13, 917523, 1245184, 14, 983059, 1245184, 15, 1048595, 1245184, 16, 1114131, 1245184, 17, 1179667, 1245184, 18, 1245203, 1245184, 19, 1310739, 589824, 17, 1376275, 1245184, 21, 1441811, 1245184, 22, 1507347, 589824, 17, 1572883, 1245184, 24, 1638419, 1245184, 25, 1703955, 1245184, 26, 1769491, 1245184, 27, 1835027, 1245184, 28, 1900563, 589824, 17, 1966099, 1245184, 30, 393236, 1310720, 6, 458772, 1310720, 7, 524308, 1310720, 8, 589844, 1310720, 9, 655380, 1310720, 10, 720916, 1310720, 11, 786452, 1310720, 12, 851988, 1310720, 13, 917524, 1310720, 14, 983060, 1310720, 15, 1048596, 1310720, 16, 1114132, 1310720, 17, 1179668, 1310720, 18, 1245204, 1310720, 19, 1310740, 589824, 17, 1376276, 1310720, 21, 1441812, 1310720, 22, 1507348, 589824, 17, 1572884, 1310720, 24, 1638420, 1310720, 25, 1703956, 1310720, 26, 1769492, 1310720, 27, 1835028, 1310720, 28, 1900564, 589824, 17, 1966100, 1310720, 30, 393237, 589824, 17, 458773, 589824, 17, 524309, 589824, 17, 589845, 589824, 17, 655381, 589824, 17, 720917, 589824, 17, 786453, 589824, 17, 851989, 589824, 17, 917525, 589824, 17, 983061, 589824, 17, 1048597, 589824, 17, 1114133, 589824, 17, 1179669, 589824, 17, 1245205, 589824, 17, 1310741, 589824, 17, 1376277, 589824, 17, 1441813, 589824, 17, 1507349, 589824, 17, 1572885, 589824, 17, 1638421, 589824, 17, 1703957, 589824, 17, 1769493, 1376256, 27, 1835029, 1376256, 28, 1900565, 589824, 17, 1966101, 1376256, 30, 393238, 1441792, 6, 458774, 1441792, 7, 524310, 589824, 17, 589846, 1441792, 9, 655382, 1441792, 10, 720918, 1441792, 11, 786454, 1441792, 12, 851990, 1441792, 13, 917526, 1441792, 14, 983062, 1441792, 15, 1048598, 1441792, 16, 1114134, 1441792, 17, 1179670, 1441792, 18, 1245206, 1441792, 19, 1310742, 589824, 17, 1376278, 1441792, 21, 1441814, 1441792, 22, 1507350, 1441792, 23, 1572886, 1441792, 24, 1638422, 1441792, 25, 1703958, 589824, 17, 1769494, 1441792, 27, 1835030, 1441792, 28, 1900566, 589824, 17, 1966102, 1441792, 30, 393239, 1507328, 6, 458775, 1507328, 7, 524311, 589824, 17, 589847, 1507328, 9, 655383, 1507328, 10, 720919, 1507328, 11, 786455, 1507328, 12, 851991, 1507328, 13, 917527, 1507328, 14, 983063, 1507328, 15, 1048599, 1507328, 16, 1114135, 1507328, 17, 1179671, 1507328, 18, 1245207, 1507328, 19, 1310743, 589824, 17, 1376279, 1507328, 21, 1441815, 1507328, 22, 1507351, 1507328, 23, 1572887, 1507328, 24, 1638423, 1507328, 25, 1703959, 589824, 17, 1769495, 1507328, 27, 1835031, 1507328, 28, 1900567, 589824, 17, 1966103, 1507328, 30, 393240, 1572864, 6, 458776, 1572864, 7, 524312, 589824, 17, 589848, 1572864, 9, 655384, 1572864, 10, 720920, 1572864, 11, 786456, 1572864, 12, 851992, 1572864, 13, 917528, 1572864, 14, 983064, 1572864, 15, 1048600, 1572864, 16, 1114136, 1572864, 17, 1179672, 1572864, 18, 1245208, 1572864, 19, 1310744, 589824, 17, 1376280, 1572864, 21, 1441816, 1572864, 22, 1507352, 589824, 17, 1572888, 589824, 17, 1638424, 589824, 17, 1703960, 589824, 17, 1769496, 1572864, 27, 1835032, 1572864, 28, 1900568, 589824, 17, 1966104, 1572864, 30, 393241, 1638400, 6, 458777, 1638400, 7, 524313, 589824, 17, 589849, 1638400, 9, 655385, 1638400, 10, 720921, 1638400, 11, 786457, 1638400, 12, 851993, 1638400, 13, 917529, 1638400, 14, 983065, 1638400, 15, 1048601, 1638400, 16, 1114137, 1638400, 17, 1179673, 1638400, 18, 1245209, 1638400, 19, 1310745, 589824, 17, 1376281, 1638400, 21, 1441817, 1638400, 22, 1507353, 589824, 17, 1572889, 1638400, 24, 1638425, 1638400, 25, 1703961, 589824, 17, 1769497, 1638400, 27, 1835033, 1638400, 28, 1900569, 589824, 17, 1966105, 1638400, 30, 393242, 589824, 17, 458778, 589824, 17, 524314, 589824, 17, 589850, 1703936, 9, 655386, 1703936, 10, 720922, 1703936, 11, 786458, 1703936, 12, 851994, 1703936, 13, 917530, 1703936, 14, 983066, 1703936, 15, 1048602, 1703936, 16, 1114138, 1703936, 17, 1179674, 1703936, 18, 1245210, 1703936, 19, 1310746, 589824, 17, 1376282, 589824, 17, 1441818, 589824, 17, 1507354, 589824, 17, 1572890, 1703936, 24, 1638426, 1703936, 25, 1703962, 589824, 17, 1769498, 589824, 17, 1835034, 589824, 17, 1900570, 589824, 17, 1966106, 1703936, 30, 393243, 1769472, 6, 458779, 1769472, 7, 524315, 1769472, 8, 589851, 1769472, 9, 655387, 1769472, 10, 720923, 1769472, 11, 786459, 1769472, 12, 851995, 1769472, 13, 917531, 1769472, 14, 983067, 1769472, 15, 1048603, 1769472, 16, 1114139, 1769472, 17, 1179675, 1769472, 18, 1245211, 1769472, 19, 1310747, 1769472, 20, 1376283, 1769472, 21, 1441819, 1769472, 22, 1507355, 1769472, 23, 1572891, 1769472, 24, 1638427, 1769472, 25, 1703963, 1769472, 26, 1769499, 1769472, 27, 1835035, 1769472, 28, 1900571, 1769472, 29, 1966107, 1769472, 30, 0, 0, 0, 65536, 0, 1, 131072, 0, 2, 196608, 0, 3, 262144, 0, 4, 327680, 0, 5, 393216, 0, 6, 458752, 0, 7, 524288, 0, 8, 589824, 0, 9, 655360, 0, 10, 720896, 0, 11, 786432, 0, 12, 851968, 0, 13, 917504, 0, 14, 983040, 0, 15, 1048576, 0, 16, 1114112, 0, 17, 1179648, 0, 18, 1245184, 0, 19, 1310720, 0, 20, 1376256, 0, 21, 1441792, 0, 22, 1507328, 0, 23, 1572864, 0, 24, 1638400, 0, 25, 1703936, 0, 26, 1769472, 0, 27, 1835008, 0, 28, 1900544, 0, 29, 1966080, 0, 30, 1, 65536, 0, 65537, 589824, 17, 131073, 589824, 17, 196609, 589824, 17, 262145, 589824, 17, 327681, 589824, 17, 393217, 589824, 17, 458753, 589824, 17, 524289, 589824, 17, 589825, 65536, 9, 655361, 65536, 10, 720897, 65536, 11, 786433, 65536, 12, 851969, 65536, 13, 917505, 65536, 14, 983041, 65536, 15, 1048577, 65536, 16, 1114113, 65536, 17, 1179649, 65536, 18, 1245185, 65536, 19, 1310721, 589824, 17, 1376257, 589824, 17, 1441793, 589824, 17, 1507329, 589824, 17, 1572865, 65536, 24, 1638401, 65536, 25, 1703937, 589824, 17, 1769473, 589824, 17, 1835009, 589824, 17, 1900545, 589824, 17, 1966081, 65536, 30, 2, 131072, 0, 65538, 589824, 17, 131074, 131072, 2, 196610, 131072, 3, 262146, 131072, 4, 327682, 589824, 17, 393218, 131072, 6, 458754, 131072, 7, 524290, 589824, 17, 589826, 131072, 9, 655362, 131072, 10, 720898, 131072, 11, 786434, 131072, 12, 851970, 131072, 13, 917506, 131072, 14, 983042, 131072, 15, 1048578, 131072, 16, 1114114, 131072, 17, 1179650, 131072, 18, 1245186, 131072, 19, 1310722, 589824, 17, 1376258, 131072, 21, 1441794, 131072, 22, 1507330, 589824, 17, 1572866, 131072, 24, 1638402, 131072, 25, 1703938, 589824, 17, 1769474, 131072, 27, 1835010, 131072, 28, 1900546, 589824, 17, 1966082, 131072, 30, 3, 196608, 0, 65539, 589824, 17, 131075, 196608, 2, 196611, 196608, 3, 262147, 196608, 4, 327683, 589824, 17, 393219, 196608, 6, 458755, 196608, 7, 524291, 589824, 17, 589827, 196608, 9, 655363, 196608, 10, 720899, 196608, 11, 786435, 196608, 12, 851971, 196608, 13, 917507, 196608, 14, 983043, 196608, 15, 1048579, 196608, 16, 1114115, 196608, 17, 1179651, 196608, 18, 1245187, 196608, 19, 1310723, 589824, 17, 1376259, 196608, 21, 1441795, 196608, 22, 1507331, 589824, 17, 1572867, 589824, 17, 1638403, 589824, 17, 1703939, 589824, 17, 1769475, 196608, 27, 1835011, 196608, 28, 1900547, 589824, 17, 1966083, 196608, 30, 4, 262144, 0, 65540, 589824, 17, 131076, 262144, 2, 196612, 262144, 3, 262148, 262144, 4, 327684, 589824, 17, 393220, 262144, 6, 458756, 262144, 7, 524292, 589824, 17, 589828, 262144, 9, 655364, 262144, 10, 720900, 262144, 11, 786436, 262144, 12, 851972, 262144, 13, 917508, 262144, 14, 983044, 262144, 15, 1048580, 262144, 16, 1114116, 262144, 17, 1179652, 262144, 18, 1245188, 262144, 19, 1310724, 589824, 17, 1376260, 262144, 21, 1441796, 262144, 22, 1507332, 262144, 23, 1572868, 262144, 24, 1638404, 262144, 25, 1703940, 589824, 17, 1769476, 262144, 27, 1835012, 262144, 28, 1900548, 589824, 17, 1966084, 262144, 30, 5, 327680, 0, 65541, 589824, 17, 131077, 327680, 2, 196613, 327680, 3, 262149, 327680, 4, 327685, 589824, 17, 393221, 327680, 6, 458757, 327680, 7, 524293, 589824, 17, 589829, 327680, 9, 655365, 327680, 10, 720901, 327680, 11, 786437, 327680, 12, 851973, 327680, 13, 917509, 327680, 14, 983045, 327680, 15, 1048581, 327680, 16, 1114117, 327680, 17, 1179653, 327680, 18, 1245189, 327680, 19, 1310725, 589824, 17, 1376261, 327680, 21, 1441797, 327680, 22, 1507333, 327680, 23, 1572869, 327680, 24, 1638405, 327680, 25, 1703941, 589824, 17, 1769477, 327680, 27, 1835013, 327680, 28, 1900549, 589824, 17, 1966085, 327680, 30, 6, 393216, 0, 65542, 589824, 17, 131078, 589824, 17, 196614, 589824, 17, 262150, 589824, 17, 327686, 589824, 17, 393222, 589824, 17, 458758, 589824, 17, 524294, 589824, 17, 589830, 589824, 17, 655366, 589824, 17, 720902, 589824, 17, 786438, 589824, 17, 851974, 589824, 17, 917510, 589824, 17, 983046, 589824, 17, 1048582, 589824, 17, 1114118, 589824, 17, 1179654, 589824, 17, 1245190, 589824, 17, 1310726, 589824, 17, 1376262, 589824, 17, 1441798, 589824, 17, 1507334, 589824, 17, 1572870, 589824, 17, 1638406, 589824, 17, 1703942, 589824, 17, 1769478, 393216, 27, 1835014, 393216, 28, 1900550, 589824, 17, 1966086, 393216, 30, 7, 458752, 0, 65543, 589824, 17, 131079, 458752, 2, 196615, 458752, 3, 262151, 458752, 4, 327687, 589824, 17, 393223, 458752, 6, 458759, 458752, 7, 524295, 458752, 8, 589831, 458752, 9, 655367, 458752, 10, 720903, 458752, 11, 786439, 458752, 12, 851975, 458752, 13, 917511, 458752, 14, 983047, 458752, 15, 1048583, 458752, 16, 1114119, 458752, 17, 1179655, 458752, 18, 1245191, 458752, 19, 1310727, 589824, 17, 1376263, 458752, 21, 1441799, 458752, 22, 1507335, 589824, 17, 1572871, 458752, 24, 1638407, 458752, 25, 1703943, 458752, 26, 1769479, 458752, 27, 1835015, 458752, 28, 1900551, 589824, 17, 1966087, 458752, 30, 8, 524288, 0, 65544, 589824, 17, 131080, 524288, 2, 196616, 524288, 3, 262152, 524288, 4, 327688, 589824, 17, 393224, 524288, 6, 458760, 524288, 7, 524296, 524288, 8, 589832, 524288, 9, 655368, 524288, 10, 720904, 524288, 11, 786440, 524288, 12, 851976, 524288, 13, 917512, 524288, 14, 983048, 524288, 15, 1048584, 524288, 16, 1114120, 524288, 17, 1179656, 524288, 18, 1245192, 524288, 19, 1310728, 589824, 17, 1376264, 524288, 21, 1441800, 524288, 22, 1507336, 589824, 17, 1572872, 524288, 24, 1638408, 524288, 25, 1703944, 524288, 26, 1769480, 524288, 27, 1835016, 524288, 28, 1900552, 589824, 17, 1966088, 524288, 30, 9, 589824, 0, 65545, 589824, 17, 131081, 589824, 2, 196617, 589824, 3, 262153, 589824, 4, 327689, 589824, 17, 10, 655360, 0, 65546, 589824, 17, 131082, 655360, 2, 196618, 655360, 3, 262154, 655360, 4, 327690, 589824, 17, 11, 720896, 0, 65547, 589824, 17, 131083, 720896, 2, 196619, 720896, 3, 262155, 720896, 4, 327691, 589824, 17, 12, 786432, 0, 65548, 589824, 17, 131084, 589824, 17, 196620, 589824, 17, 262156, 589824, 17, 327692, 589824, 17, 13, 851968, 0, 65549, 851968, 1, 131085, 851968, 2, 196621, 851968, 3, 262157, 851968, 4, 327693, 589824, 17, 14, 917504, 0, 65550, 917504, 1, 131086, 917504, 2, 196622, 917504, 3, 262158, 917504, 4, 327694, 589824, 17, 15, 983040, 0, 65551, 589824, 17, 131087, 589824, 17, 196623, 589824, 17, 262159, 589824, 17, 327695, 589824, 17, 16, 1048576, 0, 65552, 589824, 17, 131088, 1048576, 2, 196624, 1048576, 3, 262160, 1048576, 4, 327696, 589824, 17, 17, 1114112, 0, 65553, 589824, 17, 131089, 1114112, 2, 196625, 1114112, 3, 262161, 1114112, 4, 327697, 589824, 17, 18, 1179648, 0, 65554, 589824, 17, 131090, 1179648, 2, 196626, 1179648, 3, 262162, 1179648, 4, 327698, 589824, 17, 19, 1245184, 0, 65555, 589824, 17, 131091, 1245184, 2, 196627, 1245184, 3, 262163, 1245184, 4, 327699, 589824, 17, 20, 1310720, 0, 65556, 589824, 17, 131092, 1310720, 2, 196628, 1310720, 3, 262164, 1310720, 4, 327700, 589824, 17, 21, 1376256, 0, 65557, 589824, 17, 131093, 589824, 17, 196629, 589824, 17, 262165, 589824, 17, 327701, 589824, 17, 22, 1441792, 0, 65558, 589824, 17, 131094, 1441792, 2, 196630, 1441792, 3, 262166, 1441792, 4, 327702, 589824, 17, 23, 1507328, 0, 65559, 589824, 17, 131095, 1507328, 2, 196631, 1507328, 3, 262167, 1507328, 4, 327703, 589824, 17, 24, 1572864, 0, 65560, 589824, 17, 131096, 1572864, 2, 196632, 1572864, 3, 262168, 1572864, 4, 327704, 589824, 17, 25, 1638400, 0, 65561, 589824, 17, 131097, 1638400, 2, 196633, 1638400, 3, 262169, 1638400, 4, 327705, 589824, 17, 26, 1703936, 0, 65562, 589824, 17, 131098, 589824, 17, 196634, 589824, 17, 262170, 589824, 17, 327706, 589824, 17, 27, 1769472, 0, 65563, 1769472, 1, 131099, 1769472, 2, 196635, 1769472, 3, 262171, 1769472, 4, 327707, 1769472, 5, 2031643, 2949120, 1, 2031642, 2949120, 1, 2031641, 2949120, 1, 2031640, 2949120, 1, 2031639, 2949120, 1, 2031638, 2949120, 1, 2031637, 2949120, 1, 2031636, 2949120, 1, 2031635, 2949120, 1, 2031634, 2949120, 1, 2031633, 2949120, 1, 2031632, 2949120, 1, 2031631, 2949120, 1, 2031630, 2949120, 1, 2031629, 2949120, 1, 2031628, 2949120, 1, 2031627, 2949120, 1, 2031626, 2949120, 1, 2031625, 2949120, 1, 2031624, 2949120, 1, 2031623, 2949120, 1, 2031622, 2949120, 1, 2031621, 2949120, 1, 2031620, 2949120, 1, 2031619, 2949120, 1, 2031618, 2949120, 1, 2031617, 2949120, 1, 2031616, 2949120, 1, 2097152, 2949120, 1, 2097153, 2949120, 1, 2097154, 2949120, 1, 2097155, 2949120, 1, 2097156, 2949120, 1, 2097157, 2949120, 1, 2097158, 2949120, 1, 2097159, 2949120, 1, 2097160, 2949120, 1, 2097161, 2949120, 1, 2097162, 2949120, 1, 2097163, 2949120, 1, 2097164, 2949120, 1, 2097165, 2949120, 1, 2097166, 2949120, 1, 2097167, 2949120, 1, 2097168, 2949120, 1, 2097169, 2949120, 1, 2097170, 2949120, 1, 2097171, 2949120, 1, 2097172, 2949120, 1, 2097173, 2949120, 1, 2097174, 2949120, 1, 2097175, 2949120, 1, 2097176, 2949120, 1, 2097177, 2949120, 1, 2097178, 2949120, 1, 2097179, 2949120, 1, 2162715, 2949120, 1, 2162714, 2949120, 1, 2162713, 2949120, 1, 2162712, 2949120, 1, 2162711, 2949120, 1, 2162710, 2949120, 1, 2162709, 2949120, 1, 2162708, 2949120, 1, 2162707, 2949120, 1, 2162706, 2949120, 1, 2162705, 2949120, 1, 2162704, 2949120, 1, 2162703, 2949120, 1, 2162702, 2949120, 1, 2162701, 2949120, 1, 2162700, 2949120, 1, 2162699, 2949120, 1, 2162698, 2949120, 1, 2162697, 2949120, 1, 2162696, 2949120, 1, 2162695, 2949120, 1, 2162694, 2949120, 1, 2162693, 2949120, 1, 2162692, 2949120, 1, 2162691, 2949120, 1, 2162690, 2949120, 1, 2162689, 2949120, 1, 2162688, 2949120, 1, 2228224, 2490368, 1, 2228225, 2490368, 1, 2228226, 2490368, 1, 2228227, 2490368, 1, 2228228, 2490368, 1, 2228229, 2490368, 1, 2228230, 2490368, 1, 2228231, 2490368, 1, 2228232, 2490368, 1, 2228233, 2490368, 1, 2228234, 2490368, 1, 2228235, 2490368, 1, 2228236, 2490368, 1, 2228237, 2490368, 1, 2228238, 2490368, 1, 2228239, 2490368, 1, 2228240, 2490368, 1, 2228241, 2490368, 1, 2228242, 2490368, 1, 2228243, 2490368, 1, 2228244, 2490368, 1, 2228245, 2490368, 1, 2228246, 2490368, 1, 2228247, 2490368, 1, 2228248, 2490368, 1, 2228249, 2490368, 1, 2228250, 2490368, 1, 2228251, 2490368, 1)
+
+[node name="Pellets" type="Node2D" parent="."]
+
+[node name="Pellet" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(52, 12)
+rotation = -0.00175622
+
+[node name="Pellet2" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(60, 12)
+
+[node name="Pellet3" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(84, 12)
+
+[node name="Pellet4" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(92, 12)
+
+[node name="Pellet5" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(100, 12)
+
+[node name="Pellet6" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(100, 20)
+
+[node name="Pellet7" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(100, 28)
+
+[node name="Pellet8" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(100, 36)
+
+[node name="Pellet9" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(100, 44)
+
+[node name="Pellet10" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(76, 12)
+
+[node name="Pellet11" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(68, 12)
+
+[node name="Pellet12" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(124, 12)
+
+[node name="Pellet13" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(124, 20)
+
+[node name="Pellet14" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(124, 28)
+
+[node name="Pellet15" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(124, 36)
+
+[node name="Pellet16" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(124, 44)
+
+[node name="Pellet17" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(172, 12)
+rotation = 0.00395046
+
+[node name="Pellet18" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(172, 20)
+
+[node name="Pellet19" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(172, 28)
+
+[node name="Pellet20" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(172, 36)
+
+[node name="Pellet21" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(172, 44)
+
+[node name="Pellet22" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(212, 12)
+
+[node name="Pellet23" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(212, 20)
+
+[node name="Pellet24" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(212, 28)
+
+[node name="Pellet25" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(212, 36)
+
+[node name="Pellet26" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(212, 44)
+
+[node name="Pellet27" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(172, 52)
+
+[node name="Pellet28" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(172, 60)
+
+[node name="Pellet29" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(172, 68)
+
+[node name="Pellet30" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(172, 76)
+
+[node name="Pellet31" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(172, 84)
+
+[node name="Pellet32" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(172, 92)
+
+[node name="Pellet33" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(172, 100)
+
+[node name="Pellet34" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(172, 108)
+
+[node name="Pellet35" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(172, 116)
+
+[node name="Pellet36" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(172, 124)
+
+[node name="Pellet37" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(172, 132)
+
+[node name="Pellet38" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(172, 140)
+
+[node name="Pellet39" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(172, 148)
+
+[node name="Pellet40" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(172, 156)
+
+[node name="Pellet41" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(172, 164)
+
+[node name="Pellet42" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(172, 172)
+
+[node name="Pellet43" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(172, 180)
+
+[node name="Pellet44" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(172, 188)
+
+[node name="Pellet45" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(172, 196)
+
+[node name="Pellet46" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(172, 204)
+
+[node name="Pellet51" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(76, 164)
+
+[node name="Pellet57" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(52, 20)
+rotation = 0.00395046
+
+[node name="Pellet58" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(52, 28)
+
+[node name="Pellet59" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(52, 36)
+
+[node name="Pellet60" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(52, 44)
+
+[node name="Pellet61" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(52, 52)
+
+[node name="Pellet62" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(52, 60)
+
+[node name="Pellet63" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(52, 68)
+
+[node name="Pellet64" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(52, 76)
+
+[node name="Pellet65" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(52, 84)
+
+[node name="Pellet66" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(52, 92)
+
+[node name="Pellet67" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(52, 100)
+
+[node name="Pellet68" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(52, 108)
+
+[node name="Pellet69" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(52, 116)
+
+[node name="Pellet70" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(52, 124)
+
+[node name="Pellet71" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(52, 132)
+
+[node name="Pellet72" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(52, 140)
+
+[node name="Pellet73" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(52, 148)
+
+[node name="Pellet74" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(52, 156)
+
+[node name="Pellet75" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(52, 164)
+
+[node name="Pellet76" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(52, 172)
+
+[node name="Pellet77" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(52, 180)
+
+[node name="Pellet78" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(52, 188)
+
+[node name="Pellet79" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(52, 196)
+
+[node name="Pellet80" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(52, 204)
+
+[node name="Pellet81" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(52, 212)
+
+[node name="Pellet96" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(180, 68)
+rotation = -0.00175622
+
+[node name="Pellet97" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(188, 68)
+
+[node name="Pellet98" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(212, 68)
+
+[node name="Pellet99" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(204, 68)
+
+[node name="Pellet100" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(196, 68)
+
+[node name="Pellet101" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(12, 68)
+rotation = -0.00175622
+
+[node name="Pellet102" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(20, 68)
+
+[node name="Pellet103" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(44, 68)
+
+[node name="Pellet104" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(36, 68)
+
+[node name="Pellet105" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(28, 68)
+
+[node name="Pellet106" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(12, 44)
+rotation = -0.00175622
+
+[node name="Pellet107" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(20, 44)
+
+[node name="Pellet108" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(44, 44)
+
+[node name="Pellet109" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(36, 44)
+
+[node name="Pellet110" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(28, 44)
+
+[node name="Pellet111" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(12, 12)
+rotation = -0.00175622
+
+[node name="Pellet112" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(20, 12)
+
+[node name="Pellet113" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(44, 12)
+
+[node name="Pellet114" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(36, 12)
+
+[node name="Pellet115" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(28, 12)
+
+[node name="Pellet116" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(180, 164)
+rotation = -0.00175622
+
+[node name="Pellet117" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(188, 164)
+
+[node name="Pellet118" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(212, 164)
+
+[node name="Pellet119" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(204, 164)
+
+[node name="Pellet120" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(196, 164)
+
+[node name="Pellet121" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(172, 212)
+rotation = -0.00175622
+
+[node name="Pellet122" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(180, 212)
+
+[node name="Pellet123" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(204, 212)
+
+[node name="Pellet124" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(196, 212)
+
+[node name="Pellet125" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(188, 212)
+
+[node name="Pellet126" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(12, 164)
+rotation = -0.00175622
+
+[node name="Pellet127" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(20, 164)
+
+[node name="Pellet128" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(44, 164)
+
+[node name="Pellet129" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(36, 164)
+
+[node name="Pellet130" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(28, 164)
+
+[node name="Pellet131" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(12, 212)
+rotation = -0.00175622
+
+[node name="Pellet132" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(20, 212)
+
+[node name="Pellet133" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(44, 212)
+
+[node name="Pellet134" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(36, 212)
+
+[node name="Pellet135" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(28, 212)
+
+[node name="Pellet136" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(52, 236)
+rotation = -0.00175622
+
+[node name="Pellet137" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(60, 236)
+
+[node name="Pellet138" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(84, 236)
+
+[node name="Pellet139" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(92, 236)
+
+[node name="Pellet140" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(100, 236)
+
+[node name="Pellet141" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(76, 236)
+
+[node name="Pellet142" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(68, 236)
+
+[node name="Pellet143" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(12, 236)
+rotation = -0.00175622
+
+[node name="Pellet144" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(20, 236)
+
+[node name="Pellet145" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(44, 236)
+
+[node name="Pellet146" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(36, 236)
+
+[node name="Pellet147" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(28, 236)
+
+[node name="Pellet148" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(164, 236)
+rotation = -0.00175622
+
+[node name="Pellet149" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(172, 236)
+
+[node name="Pellet150" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(196, 236)
+
+[node name="Pellet151" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(204, 236)
+
+[node name="Pellet152" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(212, 236)
+
+[node name="Pellet153" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(188, 236)
+
+[node name="Pellet154" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(180, 236)
+
+[node name="Pellet155" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(124, 236)
+rotation = -0.00175622
+
+[node name="Pellet156" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(132, 236)
+
+[node name="Pellet157" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(156, 236)
+
+[node name="Pellet158" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(148, 236)
+
+[node name="Pellet159" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(140, 236)
+
+[node name="Pellet160" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(12, 172)
+
+[node name="Pellet161" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(12, 180)
+
+[node name="Pellet162" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(12, 188)
+
+[node name="Pellet163" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(28, 188)
+
+[node name="Pellet164" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(28, 196)
+
+[node name="Pellet165" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(28, 204)
+
+[node name="Pellet166" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(196, 188)
+
+[node name="Pellet167" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(196, 196)
+
+[node name="Pellet168" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(196, 204)
+
+[node name="Pellet169" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(212, 172)
+
+[node name="Pellet170" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(212, 180)
+
+[node name="Pellet171" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(212, 188)
+
+[node name="Pellet172" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(124, 164)
+
+[node name="Pellet173" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(124, 172)
+
+[node name="Pellet174" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(124, 180)
+
+[node name="Pellet175" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(100, 164)
+
+[node name="Pellet176" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(100, 172)
+
+[node name="Pellet177" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(100, 180)
+
+[node name="Pellet178" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(100, 188)
+
+[node name="Pellet179" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(148, 188)
+
+[node name="Pellet180" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(148, 196)
+
+[node name="Pellet181" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(148, 204)
+
+[node name="Pellet182" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(148, 212)
+
+[node name="Pellet183" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(76, 188)
+
+[node name="Pellet184" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(76, 196)
+
+[node name="Pellet185" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(76, 204)
+
+[node name="Pellet186" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(76, 212)
+
+[node name="Pellet187" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(124, 212)
+rotation = -0.00175622
+
+[node name="Pellet188" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(132, 212)
+
+[node name="Pellet189" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(140, 212)
+
+[node name="Pellet190" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(84, 212)
+rotation = -0.00175622
+
+[node name="Pellet191" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(92, 212)
+
+[node name="Pellet192" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(100, 212)
+
+[node name="Pellet193" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(212, 228)
+
+[node name="Pellet194" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(212, 212)
+
+[node name="Pellet195" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(212, 220)
+
+[node name="Pellet196" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(148, 68)
+
+[node name="Pellet197" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(148, 52)
+
+[node name="Pellet198" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(148, 60)
+
+[node name="Pellet199" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(12, 36)
+
+[node name="Pellet200" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(12, 20)
+
+[node name="Pellet201" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(12, 28)
+
+[node name="Pellet202" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(12, 52)
+
+[node name="Pellet203" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(12, 60)
+
+[node name="Pellet216" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(148, 164)
+
+[node name="Pellet218" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(68, 164)
+
+[node name="Pellet219" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(60, 164)
+
+[node name="Pellet220" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(92, 164)
+
+[node name="Pellet221" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(84, 164)
+
+[node name="Pellet222" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(140, 164)
+
+[node name="Pellet223" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(132, 164)
+
+[node name="Pellet224" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(164, 164)
+
+[node name="Pellet225" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(156, 164)
+
+[node name="Pellet226" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(92, 188)
+
+[node name="Pellet227" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(84, 188)
+
+[node name="Pellet228" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(68, 188)
+
+[node name="Pellet229" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(60, 188)
+
+[node name="Pellet230" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(132, 188)
+
+[node name="Pellet232" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(124, 188)
+
+[node name="Pellet234" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(124, 220)
+
+[node name="Pellet235" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(124, 228)
+
+[node name="Pellet236" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(100, 220)
+
+[node name="Pellet237" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(100, 228)
+
+[node name="Pellet238" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(12, 220)
+
+[node name="Pellet239" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(12, 228)
+
+[node name="Pellet240" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(212, 52)
+
+[node name="Pellet241" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(212, 60)
+
+[node name="Pellet242" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(180, 44)
+rotation = -0.00175622
+
+[node name="Pellet243" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(188, 44)
+
+[node name="Pellet244" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(204, 44)
+
+[node name="Pellet245" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(196, 44)
+
+[node name="Pellet246" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(180, 12)
+rotation = -0.00175622
+
+[node name="Pellet247" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(188, 12)
+
+[node name="Pellet248" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(204, 12)
+
+[node name="Pellet249" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(196, 12)
+
+[node name="Pellet250" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(132, 12)
+
+[node name="Pellet251" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(156, 12)
+
+[node name="Pellet252" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(164, 12)
+
+[node name="Pellet253" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(148, 12)
+
+[node name="Pellet254" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(140, 12)
+
+[node name="Pellet255" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(132, 44)
+
+[node name="Pellet256" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(156, 44)
+
+[node name="Pellet257" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(164, 44)
+
+[node name="Pellet258" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(148, 44)
+
+[node name="Pellet259" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(140, 44)
+
+[node name="Pellet260" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(76, 68)
+
+[node name="Pellet261" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(76, 52)
+
+[node name="Pellet262" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(76, 60)
+
+[node name="Pellet263" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(76, 44)
+
+[node name="Pellet267" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(124, 68)
+
+[node name="Pellet271" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(100, 68)
+
+[node name="Pellet272" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(132, 68)
+
+[node name="Pellet273" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(140, 68)
+
+[node name="Pellet276" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(108, 44)
+
+[node name="Pellet277" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(116, 44)
+
+[node name="Pellet278" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(84, 44)
+
+[node name="Pellet279" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(92, 44)
+
+[node name="Pellet280" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(84, 68)
+
+[node name="Pellet281" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(92, 68)
+
+[node name="Pellet286" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(156, 188)
+
+[node name="Pellet287" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(164, 188)
+
+[node name="Pellet288" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(108, 236)
+
+[node name="Pellet289" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(116, 236)
+
+[node name="Pellet290" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(140, 188)
+
+[node name="Pellet291" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(204, 188)
+
+[node name="Pellet292" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(20, 188)
+
+[node name="Pellet293" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(60, 44)
+
+[node name="Pellet294" parent="Pellets" groups=["Pellets"] instance=ExtResource("4_udemh")]
+position = Vector2(68, 44)
+
+[node name="Crossroads" type="Node2D" parent="."]
+
+[node name="Marker2D" type="Marker2D" parent="Crossroads"]
+position = Vector2(52, 68)
+
+[node name="Marker2D2" type="Marker2D" parent="Crossroads"]
+position = Vector2(12, 68)
+
+[node name="Marker2D3" type="Marker2D" parent="Crossroads"]
+position = Vector2(52, 44)
+
+[node name="Marker2D4" type="Marker2D" parent="Crossroads"]
+position = Vector2(12, 44)
+
+[node name="Marker2D5" type="Marker2D" parent="Crossroads"]
+position = Vector2(212, 68)
+
+[node name="Marker2D6" type="Marker2D" parent="Crossroads"]
+position = Vector2(172, 68)
+
+[node name="Marker2D7" type="Marker2D" parent="Crossroads"]
+position = Vector2(212, 44)
+
+[node name="Marker2D8" type="Marker2D" parent="Crossroads"]
+position = Vector2(172, 44)
+
+[node name="Marker2D9" type="Marker2D" parent="Crossroads"]
+position = Vector2(100, 188)
+
+[node name="Marker2D10" type="Marker2D" parent="Crossroads"]
+position = Vector2(52, 188)
+
+[node name="Marker2D11" type="Marker2D" parent="Crossroads"]
+position = Vector2(100, 164)
+
+[node name="Marker2D12" type="Marker2D" parent="Crossroads"]
+position = Vector2(52, 164)
+
+[node name="Marker2D13" type="Marker2D" parent="Crossroads"]
+position = Vector2(172, 188)
+
+[node name="Marker2D14" type="Marker2D" parent="Crossroads"]
+position = Vector2(124, 188)
+
+[node name="Marker2D15" type="Marker2D" parent="Crossroads"]
+position = Vector2(172, 164)
+
+[node name="Marker2D16" type="Marker2D" parent="Crossroads"]
+position = Vector2(124, 164)
+
+[node name="Marker2D17" type="Marker2D" parent="Crossroads"]
+position = Vector2(212, 188)
+
+[node name="Marker2D18" type="Marker2D" parent="Crossroads"]
+position = Vector2(212, 164)
+
+[node name="Marker2D19" type="Marker2D" parent="Crossroads"]
+position = Vector2(212, 236)
+
+[node name="Marker2D20" type="Marker2D" parent="Crossroads"]
+position = Vector2(212, 212)
+
+[node name="Marker2D22" type="Marker2D" parent="Crossroads"]
+position = Vector2(172, 212)
+
+[node name="Marker2D24" type="Marker2D" parent="Crossroads"]
+position = Vector2(148, 212)
+
+[node name="Marker2D25" type="Marker2D" parent="Crossroads"]
+position = Vector2(124, 236)
+
+[node name="Marker2D26" type="Marker2D" parent="Crossroads"]
+position = Vector2(124, 212)
+
+[node name="Marker2D27" type="Marker2D" parent="Crossroads"]
+position = Vector2(100, 236)
+
+[node name="Marker2D28" type="Marker2D" parent="Crossroads"]
+position = Vector2(100, 212)
+
+[node name="Marker2D30" type="Marker2D" parent="Crossroads"]
+position = Vector2(76, 212)
+
+[node name="Marker2D32" type="Marker2D" parent="Crossroads"]
+position = Vector2(52, 212)
+
+[node name="Marker2D33" type="Marker2D" parent="Crossroads"]
+position = Vector2(12, 236)
+
+[node name="Marker2D34" type="Marker2D" parent="Crossroads"]
+position = Vector2(12, 212)
+
+[node name="Marker2D35" type="Marker2D" parent="Crossroads"]
+position = Vector2(12, 188)
+
+[node name="Marker2D36" type="Marker2D" parent="Crossroads"]
+position = Vector2(12, 164)
+
+[node name="Marker2D37" type="Marker2D" parent="Crossroads"]
+position = Vector2(28, 212)
+
+[node name="Marker2D38" type="Marker2D" parent="Crossroads"]
+position = Vector2(28, 188)
+
+[node name="Marker2D39" type="Marker2D" parent="Crossroads"]
+position = Vector2(76, 188)
+
+[node name="Marker2D40" type="Marker2D" parent="Crossroads"]
+position = Vector2(148, 188)
+
+[node name="Marker2D41" type="Marker2D" parent="Crossroads"]
+position = Vector2(196, 212)
+
+[node name="Marker2D42" type="Marker2D" parent="Crossroads"]
+position = Vector2(196, 188)
+
+[node name="Marker2D21" type="Marker2D" parent="Crossroads"]
+position = Vector2(212, 12)
+
+[node name="Marker2D23" type="Marker2D" parent="Crossroads"]
+position = Vector2(172, 12)
+
+[node name="Marker2D29" type="Marker2D" parent="Crossroads"]
+position = Vector2(52, 12)
+
+[node name="Marker2D31" type="Marker2D" parent="Crossroads"]
+position = Vector2(12, 12)
+
+[node name="Marker2D43" type="Marker2D" parent="Crossroads"]
+position = Vector2(100, 44)
+
+[node name="Marker2D44" type="Marker2D" parent="Crossroads"]
+position = Vector2(100, 12)
+
+[node name="Marker2D45" type="Marker2D" parent="Crossroads"]
+position = Vector2(124, 44)
+
+[node name="Marker2D46" type="Marker2D" parent="Crossroads"]
+position = Vector2(124, 12)
+
+[node name="Marker2D47" type="Marker2D" parent="Crossroads"]
+position = Vector2(148, 44)
+
+[node name="Marker2D48" type="Marker2D" parent="Crossroads"]
+position = Vector2(148, 68)
+
+[node name="Marker2D49" type="Marker2D" parent="Crossroads"]
+position = Vector2(124, 68)
+
+[node name="Marker2D50" type="Marker2D" parent="Crossroads"]
+position = Vector2(100, 68)
+
+[node name="Marker2D51" type="Marker2D" parent="Crossroads"]
+position = Vector2(76, 44)
+
+[node name="Marker2D52" type="Marker2D" parent="Crossroads"]
+position = Vector2(76, 92)
+
+[node name="Marker2D53" type="Marker2D" parent="Crossroads"]
+position = Vector2(100, 92)
+
+[node name="Marker2D54" type="Marker2D" parent="Crossroads"]
+position = Vector2(124, 92)
+
+[node name="Marker2D55" type="Marker2D" parent="Crossroads"]
+position = Vector2(148, 92)
+
+[node name="Marker2D56" type="Marker2D" parent="Crossroads"]
+position = Vector2(148, 116)
+
+[node name="Marker2D57" type="Marker2D" parent="Crossroads"]
+position = Vector2(172, 116)
+
+[node name="Marker2D58" type="Marker2D" parent="Crossroads"]
+position = Vector2(148, 140)
+
+[node name="Marker2D59" type="Marker2D" parent="Crossroads"]
+position = Vector2(148, 164)
+
+[node name="Marker2D60" type="Marker2D" parent="Crossroads"]
+position = Vector2(52, 116)
+
+[node name="Marker2D61" type="Marker2D" parent="Crossroads"]
+position = Vector2(76, 116)
+
+[node name="Marker2D62" type="Marker2D" parent="Crossroads"]
+position = Vector2(76, 140)
+
+[node name="Marker2D63" type="Marker2D" parent="Crossroads"]
+position = Vector2(76, 164)
+
+[node name="Marker2D64" type="Marker2D" parent="Crossroads"]
+position = Vector2(76, 68)
+
+[node name="HUD" parent="." instance=ExtResource("5_hviel")]
+visible = false
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_right = 224.0
+offset_bottom = 280.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="PacmanSpawn" type="Marker2D" parent="."]
+visible = false
+position = Vector2(112, 188)

@@ -1,0 +1,167 @@
+[gd_scene load_steps=23 format=3 uid="uid://c6ek6pt6kcuo0"]
+
+[ext_resource type="Script" path="res://scripts/Pacman.gd" id="1_rbj8f"]
+[ext_resource type="Texture2D" uid="uid://c2ktvqa3qkssj" path="res://assets/Arcade - Pac-Man - General Sprites.png" id="1_wb6em"]
+[ext_resource type="Texture2D" uid="uid://dtqnyrnh78hm" path="res://icon.svg" id="3_ve3pp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e5dew"]
+atlas = ExtResource("1_wb6em")
+region = Rect2(488, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ibim1"]
+atlas = ExtResource("1_wb6em")
+region = Rect2(504, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cy1be"]
+atlas = ExtResource("1_wb6em")
+region = Rect2(520, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8cbhy"]
+atlas = ExtResource("1_wb6em")
+region = Rect2(536, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t5hbg"]
+atlas = ExtResource("1_wb6em")
+region = Rect2(552, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_14k1i"]
+atlas = ExtResource("1_wb6em")
+region = Rect2(568, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_djyhh"]
+atlas = ExtResource("1_wb6em")
+region = Rect2(584, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sa4bs"]
+atlas = ExtResource("1_wb6em")
+region = Rect2(600, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aw0ai"]
+atlas = ExtResource("1_wb6em")
+region = Rect2(616, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_stgqg"]
+atlas = ExtResource("1_wb6em")
+region = Rect2(632, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_08eri"]
+atlas = ExtResource("1_wb6em")
+region = Rect2(648, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4vej0"]
+atlas = ExtResource("1_wb6em")
+region = Rect2(664, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_70brb"]
+atlas = ExtResource("1_wb6em")
+region = Rect2(456, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yvien"]
+atlas = ExtResource("1_wb6em")
+region = Rect2(472, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oqa0i"]
+atlas = ExtResource("1_wb6em")
+region = Rect2(488, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_r4whh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e5dew")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ibim1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cy1be")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8cbhy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t5hbg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_14k1i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_djyhh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sa4bs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aw0ai")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_stgqg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_08eri")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4vej0")
+}],
+"loop": true,
+"name": &"dying",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_70brb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yvien")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oqa0i")
+}],
+"loop": true,
+"name": &"eating",
+"speed": 12.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ki3qt"]
+radius = 3.5
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yr77f"]
+radius = 4.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ev17l"]
+radius = 5.09902
+
+[node name="Pacman" type="CharacterBody2D" groups=["Pacman"]]
+collision_layer = 2
+motion_mode = 1
+slide_on_ceiling = false
+platform_on_leave = 2
+safe_margin = 0.01
+script = ExtResource("1_rbj8f")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_r4whh")
+animation = &"eating"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_ki3qt")
+
+[node name="DirectionPointer" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(10, 0)
+scale = Vector2(0.04, 0.04)
+texture = ExtResource("3_ve3pp")
+
+[node name="EatArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 6
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EatArea"]
+shape = SubResource("CircleShape2D_yr77f")
+
+[node name="ActionArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ActionArea"]
+shape = SubResource("CircleShape2D_ev17l")

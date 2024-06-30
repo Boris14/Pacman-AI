@@ -1,0 +1,45 @@
+[gd_scene load_steps=3 format=3 uid="uid://day3c5gmi1fvb"]
+
+[ext_resource type="Script" path="res://scripts/MainMenu.gd" id="1_6uvtj"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_jltu7"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6uvtj")
+
+[node name="TextEdit" type="TextEdit" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -12.0
+offset_right = 40.0
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+placeholder_text = "  {2 - 20}"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 20.0
+offset_bottom = -17.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Type Pacman's A* depth:"
+label_settings = SubResource("LabelSettings_jltu7")
